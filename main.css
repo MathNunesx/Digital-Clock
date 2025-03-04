@@ -11,3 +11,10 @@ body{display: flex;
     height: 100vh;
     background-image: linear-gradient(to bottom, #A0C7F4 0%, #B2D5FD 44%, #BCDBFF 87%);
 }
+
+.box{
+    border: 1px solid #ffff ;
+    border-radius: 50px;
+    width: 988px;
+    height: 557px;
+}
