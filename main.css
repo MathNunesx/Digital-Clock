@@ -24,8 +24,8 @@ body{
     align-items: center;
     justify-content: center;
     gap: 160px;
-    /* border: 1px solid #ffff ; */
-    box-shadow: 0px 15px 15px 5px #A0C7F4;
+    border: 1px solid #ffff ;
+    /* box-shadow: 0px 15px 15px 5px #8669EE; */
     border-radius: 50px;
     width: 988px;
     height: 557px;
@@ -37,6 +37,7 @@ body{
     display: flex;
     flex-direction: row;
     gap: 600px;
+    cursor: pointer;
 }
 
 .topics{
@@ -57,4 +58,10 @@ body{
    font-family: "Anonymous Pro"; 
    font-size: 100px;
 
+}
+
+#dia-mes-ano{
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 600; 
 }
