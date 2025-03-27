@@ -23,23 +23,37 @@ function relogioUpdate() {
 }
 
 function trocarBG(hours) {
-    let backColor, boxColor;
+    let backColor, boxColor, textColor
 
     if (hours >= 6 && hours < 13) {
         backColor = "linear-gradient(to bottom, #A0C7F4 0%, #B2D5FD 44%, #BCDBFF 87%)";
-        boxColor = "linear-gradient(to bottom, #A0C7F4 40%, #BCDBFF 80%)"; // Manhã
+        boxColor = "linear-gradient(to bottom, #A0C7F4 40%, #BCDBFF 80%)"; 
+        textColor = "#000000"
+        // Manhã
     } else if (hours >= 13 && hours < 18) {
         backColor = "linear-gradient(to bottom, #E5D272 0%, #FF9A76 44%, #8669EE 87%)";
         boxColor = "linear-gradient(to bottom, #E5D272 0%, #C884AD 46%,  #8669EE 100%)";
+        textColor = "#000000"
          // Tarde
     } else {
         backColor = "linear-gradient(to bottom, #0B063A 0%, #2D2197 44%, #5A4DC8 87%)"; 
-        boxColor = "linear-gradient(to bottom, #5A4DC8 0%, #2D2197 100%)"; // Noite
+        boxColor = "linear-gradient(to bottom, #5A4DC8 0%, #2D2197 100%)";
+        textColor = "#ffffff"
+        // Noite
+
     }
 
     // Aplicar o gradiente ao body
     document.body.style.background = backColor;
     document.querySelector('.box').style.background = boxColor;
+
+    document.body.style.color = textColor
+
+    document.querySelectorAll('.topics').forEach(element =>{
+        element.style.color = color
+    })
+
+    document.getElementById('clock').style.color = textColor
 }
 
 // Atualizar o relógio a cada segundo

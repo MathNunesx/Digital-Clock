@@ -38,6 +38,7 @@ body{
     flex-direction: row;
     gap: 600px;
     cursor: pointer;
+    font-weight: 300;
 }
 
 .topics{
