@@ -60,15 +60,25 @@ function trocarBG(hours) {
     document.getElementById('clock').style.color = textColor
 }
 
-function cronometroUpdate(){
-    const horas = Math.floor(tempoCorrido / 3600)
-    const minutos = Math.floor((tempoCorrido % 3600) / 60)
-    const segundos = tempoCorrido % 60
+function cronometroUpdate() {
+    const centesimos = tempoCorrido % 100;
+    const totalSegundos = Math.floor(tempoCorrido / 100);
 
-    document.getElementById('cronometro').textContent =
-    String(horas).padStart(2, '0') + ':' +
-    String(minutos).padStart(2, '0') + ':' +
-    String(segundos).padStart(2, '0')
+    const horas = Math.floor(totalSegundos / 3600);
+    const minutos = Math.floor((totalSegundos % 3600) / 60);
+    const segundos = totalSegundos % 60;
+
+    let tempoFormatado = "";
+
+    if (horas > 0) {
+        tempoFormatado = `${horas}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}.${String(centesimos).padStart(2, '0')}`;
+    } else if (minutos > 0) {
+        tempoFormatado = `${minutos}:${String(segundos).padStart(2, '0')}.${String(centesimos).padStart(2, '0')}`;
+    } else {
+        tempoFormatado = `${segundos}.${String(centesimos).padStart(2, '0')}`;
+    }
+
+    document.getElementById('cronometro').textContent = tempoFormatado;
 }
 
 document.getElementById('cronometroToggle').addEventListener('click', ()=>{
@@ -98,7 +108,7 @@ document.getElementById('startBtn').addEventListener('click', () => {
         intervaloCrono = setInterval(() =>{
             tempoCorrido++
             cronometroUpdate()
-        }, 1000)
+        }, 10)
     }
 })
 
@@ -126,4 +136,4 @@ setInterval(() =>{
 
 
 // Atualizar imediatamente ao carregar a página :)
-relogioUpdate();
+relogioUpdate()
