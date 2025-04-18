@@ -1,3 +1,7 @@
+let modo = 'relogio'
+let intervaloCrono
+let tempoCorrido = 0
+
 function relogioUpdate() {
     const now = new Date();
     const hours = now.getHours();
@@ -50,14 +54,76 @@ function trocarBG(hours) {
     document.body.style.color = textColor
 
     document.querySelectorAll('.topics').forEach(element =>{
-        element.style.color = color
+        element.style.color = textColor
     })
 
     document.getElementById('clock').style.color = textColor
 }
 
-// Atualizar o relógio a cada segundo
-setInterval(relogioUpdate, 1000);
+function cronometroUpdate(){
+    const horas = Math.floor(tempoCorrido / 3600)
+    const minutos = Math.floor((tempoCorrido % 3600) / 60)
+    const segundos = tempoCorrido % 60
 
-// Atualizar imediatamente ao carregar a página
+    document.getElementById('cronometro').textContent =
+    String(horas).padStart(2, '0') + ':' +
+    String(minutos).padStart(2, '0') + ':' +
+    String(segundos).padStart(2, '0')
+}
+
+document.getElementById('cronometroToggle').addEventListener('click', ()=>{
+    modo ='cronometro'
+    document.getElementById('clock').style.display = 'none'
+    document.getElementById('dia-mes-ano').style.display = 'none'
+    document.getElementById('cronometro').style.display = 'block'
+    document.getElementById('btns').style.display = 'flex'
+    document.getElementById('rodape').style.display = 'none'
+})
+
+document.getElementById('relogioToggle').addEventListener('click', ()=>{
+    modo ='relogio'
+    document.getElementById('clock').style.display = 'block'
+    document.getElementById('dia-mes-ano').style.display = 'block'
+    document.getElementById('cronometro').style.display = 'none'
+    document.getElementById('btns').style.display = 'none'
+    document.getElementById('rodape').style.display = 'block'
+    clearInterval(intervaloCrono)
+    intervaloCrono = null
+    tempoCorrido = 0
+    cronometroUpdate()
+})
+
+document.getElementById('startBtn').addEventListener('click', () => {
+    if(!intervaloCrono){
+        intervaloCrono = setInterval(() =>{
+            tempoCorrido++
+            cronometroUpdate()
+        }, 1000)
+    }
+})
+
+document.getElementById('pauseBtn').addEventListener('click', () => {
+    clearInterval(intervaloCrono)
+    intervaloCrono = null
+})
+
+document.getElementById('resetBtn').addEventListener('click', () =>{
+    clearInterval(intervaloCrono)
+    intervaloCrono = null
+    tempoCorrido = 0
+    cronometroUpdate()
+})
+
+
+
+setInterval(() =>{
+    if(modo === 'relogio'){
+        relogioUpdate();
+    }
+}, 1000)
+
+
+
+
+// Atualizar imediatamente ao carregar a página :)
 relogioUpdate();

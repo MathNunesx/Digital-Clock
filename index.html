@@ -6,32 +6,34 @@
     <title>Digital Clock</title>
 
     <link rel="stylesheet" href="main.css">
-    <script src="script.js"></script>
+    
 
 </head>
 <body>
     <div class="box">
 
         <div class="high-topics">
-            <h2 class="topics"> CRONÔMETRO</h2>
-            <h2 class="topics"> RELÓGIO</h2>
+            <h2 class="topics" id="cronometroToggle"> CRONÔMETRO</h2>
+            <h2 class="topics" id="relogioToggle"> RELÓGIO</h2>
         </div>
 
         <div class="data">
             <h2 id="dia-mes-ano"> dia mês ano</h2>
             <h1 id="clock"> 00:00:00 </h1>
+            <h1 id="cronometro" style="display: none;"> 00:00:00 </h1>
         </div>
 
         <div id="low">
-            <div id="btns">
-                <button>Iniciar</button>
-                <button>Pausar</button>
-                <button>Resetar</button>
+            <div id="btns" style="display: none;">
+                <button id="startBtn">Iniciar</button>
+                <button id="pauseBtn">Pausar</button>
+                <button id="resetBtn">Resetar</button>
             </div>
-            <h2 class="topics"> Horário de Brasilia</h2>
+            <h2 id="rodape"> Horário de Brasilia</h2>
             
         </div>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
