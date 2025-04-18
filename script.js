@@ -86,6 +86,11 @@ function cronometroUpdate() {
     }
 
     document.getElementById('cronometro').textContent = tempoFormatado;
+
+    const cronometro = document.getElementById('cronometro')
+    cronometro.classList.remove('pulsando')
+    void cronometro.offsetWidth
+    cronometro.classList.add('pulsando')
 }
 
 document.getElementById('cronometroToggle').addEventListener('click', ()=>{

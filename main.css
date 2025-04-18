@@ -109,3 +109,16 @@ body{
     /* border: solid #ffff 1px; */
 }
 
+#cronometro{
+    transition: all 0.1s ease-in-out;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1);}
+    50% { transform: scale(1.03);}
+    100%{transform: scale(1);}
+}
+
+#cronometro.pulsando{
+    animation: pulsar 0.3s ease;
+}
