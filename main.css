@@ -85,7 +85,14 @@ body{
     position: absolute;
     gap: 20px;
     padding-bottom: 50px;
+    
+}
 
+#btns :hover{
+    background-color: #333232c0;
+    scale: 1.1;
+    box-shadow: #333232 2px 2px 2px;
+    transition: 0.3s;
 }
 
 #btns button{
@@ -97,6 +104,8 @@ body{
     font-weight: 450;
     border-radius: 50px;
     border: none;
-    color: #B2D5FD;
+    /* color: #B2D5FD; */
     background-color: #333232;
+    /* border: solid #ffff 1px; */
 }
+
