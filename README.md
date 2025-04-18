@@ -32,5 +32,5 @@ Este é um projeto de relógio e cronômetro digital interativo, feito com **HTM
 
  Adicionar sons ou vibrações para eventos específicos
 
-Confira aqui o projeto:
-https://digitalclockbrazilian.vercel.app
+Feito por:
+MATHEUS RODRIGUES NUNES.
