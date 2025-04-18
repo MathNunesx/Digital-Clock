@@ -1,7 +1,10 @@
+// variaveis globais
+
 let modo = 'relogio'
 let intervaloCrono
 let tempoCorrido = 0
 
+// Funcionamento do Relogio
 function relogioUpdate() {
     const now = new Date();
     const hours = now.getHours();
@@ -67,6 +70,8 @@ function trocarBG(hours) {
     })
 }
 
+// Funcionamento do Cronometro
+
 function cronometroUpdate() {
     const centesimos = tempoCorrido % 100;
     const totalSegundos = Math.floor(tempoCorrido / 100);
@@ -87,12 +92,14 @@ function cronometroUpdate() {
 
     document.getElementById('cronometro').textContent = tempoFormatado;
 
+    // Animação
     const cronometro = document.getElementById('cronometro')
     cronometro.classList.remove('pulsando')
     void cronometro.offsetWidth
     cronometro.classList.add('pulsando')
 }
 
+// Alternação dos modos relogio e cronometro
 document.getElementById('cronometroToggle').addEventListener('click', ()=>{
     modo ='cronometro'
     document.getElementById('clock').style.display = 'none'
@@ -115,6 +122,7 @@ document.getElementById('relogioToggle').addEventListener('click', ()=>{
     cronometroUpdate()
 })
 
+// Botões do cronometro
 document.getElementById('startBtn').addEventListener('click', () => {
     if(!intervaloCrono){
         intervaloCrono = setInterval(() =>{
@@ -137,6 +145,7 @@ document.getElementById('resetBtn').addEventListener('click', () =>{
 })
 
 
+// Atualização continua
 
 setInterval(() =>{
     if(modo === 'relogio'){
